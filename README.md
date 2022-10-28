@@ -4,14 +4,21 @@
 
 The main class is: `CoffeeCornerApp.java`
 
-- The program needs one argument `outputFolder`
+- The program needs one argument `outputFolder` which is a folder for storing the generated receipt images.
+
+### A. Running with Java when project is compiled already by IDE
 
 Can be run like the following: `java org.coffeecorner.CoffeeCornerApp outputFolder`  
-E.g. `java org.coffeecorner.CoffeeCornerApp /Users/kokaveczandras/dev/output`
+
+E.g. `java org.coffeecorner.CoffeeCornerApp /Users/kokaveczandras/dev/output`  
+
+### B. Compiling and running with Maven from console
+
+E.g. `mvn compile exec:java -Dexec.mainClass="org.coffeecorner.CoffeeCornerApp" -Dexec.args="/Users/kokaveczandras/dev/output"`  
 
 ## Assumptions
 
-### AS-001 - Not allowed to use any library other than Java SE and JUnit
+#### AS-001 - Not allowed to use any library other than Java SE and JUnit
 
 - `Spring`
     - Not allowed to use Spring, so creating beans, wiring application context and dependency injection was done manually.
@@ -20,29 +27,33 @@ E.g. `java org.coffeecorner.CoffeeCornerApp /Users/kokaveczandras/dev/output`
 - `Hamcrest`
     - Not allowed to use Hamcrest, so e.g. not using `assertThat()` type of nice and readable assertions.
 
-### AS-002 - Application input
+#### AS-002 - Application input
 
 The type of input for the application wasn't defined.  
 The limitation here was to only use JAVA SE and no other libraries, so something like a REST API wouldn't work here.  
 I was left with options: User Input, File Based Input (e.g. watching a folder with CSV, JSON, XML), etc.  
 Therefore I decided to go with User Input via the Scanner.
 
-### AS-003 - No currency concept
+#### AS-003 - No currency concept
 
 Currency concept is not yet modelled at the moment.  
 Prices, amounts, totals are assumed to be in CHF.
 
-### AS-004 - No VAT calculation
+#### AS-004 - No VAT calculation
 
 Prices are net prices, VAT is not modelled at the moment.
 
-### AS-005 - No tip calculation
+#### AS-005 - No tip calculation
 
 Tips are not included yet.
 
-### AS-006 - Unlimited inventory
+#### AS-006 - Unlimited inventory
 
 There is no inventory concept yet, every product is available, we don't track inventory quantities.
+
+## Screenshot of 15 tests running green
+
+![readme / 15-tests-running-green.png](readme/15-tests-running-green.png)
 
 ## Example output and console interaction
 
